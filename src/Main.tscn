@@ -1,0 +1,173 @@
+[gd_scene load_steps=13 format=3 uid="uid://cgqm3j42bdibk"]
+
+[ext_resource type="Texture2D" uid="uid://b7ogxjykw84t8" path="res://assets/player.png" id="1_7m478"]
+[ext_resource type="Script" path="res://src/Main.gd" id="1_m5vln"]
+[ext_resource type="Texture2D" uid="uid://b3ouxsmjon7xs" path="res://assets/pipe-t.png" id="2_1akw5"]
+[ext_resource type="Script" path="res://src/Player.gd" id="2_rycqr"]
+[ext_resource type="Texture2D" uid="uid://by8p8o7maxdnq" path="res://assets/pipe-b.png" id="3_y1ohs"]
+[ext_resource type="Script" path="res://src/Pipes.gd" id="4_qv4v6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01ois"]
+size = Vector2(123, 1148)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y603o"]
+size = Vector2(123, 1292)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nx2qm"]
+size = Vector2(142, 328)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k3oyw"]
+size = Vector2(779, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmgoi"]
+size = Vector2(699, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8bpef"]
+radius = 31.0644
+
+[node name="Main" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m5vln")
+
+[node name="Game" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="Pipes" type="Node2D" parent="Game"]
+script = ExtResource("4_qv4v6")
+
+[node name="Pipe-t" type="Sprite2D" parent="Game/Pipes"]
+position = Vector2(0, 493)
+texture = ExtResource("2_1akw5")
+
+[node name="Pipe-b" type="Sprite2D" parent="Game/Pipes"]
+position = Vector2(0, -503)
+texture = ExtResource("3_y1ohs")
+
+[node name="TopPipe" type="Area2D" parent="Game/Pipes"]
+position = Vector2(0, -738)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Pipes/TopPipe"]
+shape = SubResource("RectangleShape2D_01ois")
+
+[node name="BottomPipe" type="Area2D" parent="Game/Pipes"]
+position = Vector2(0, 783)
+collision_layer = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Game/Pipes/BottomPipe"]
+shape = SubResource("RectangleShape2D_y603o")
+
+[node name="ScoreAdd" type="Area2D" parent="Game/Pipes"]
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Pipes/ScoreAdd"]
+position = Vector2(9, 0)
+shape = SubResource("RectangleShape2D_nx2qm")
+
+[node name="Deathzone" type="Area2D" parent="Game"]
+position = Vector2(0, 1294)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Deathzone"]
+position = Vector2(379.5, 0)
+shape = SubResource("RectangleShape2D_k3oyw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Game"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/StaticBody2D"]
+position = Vector2(339.5, 0)
+shape = SubResource("RectangleShape2D_xmgoi")
+
+[node name="Player" type="CharacterBody2D" parent="Game"]
+position = Vector2(214, 576)
+collision_mask = 6
+script = ExtResource("2_rycqr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/Player"]
+position = Vector2(-24, 3)
+texture = ExtResource("1_7m478")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Player"]
+shape = SubResource("CircleShape2D_8bpef")
+
+[node name="PipesPositions" type="Node2D" parent="Game"]
+
+[node name="Left" type="Marker2D" parent="Game/PipesPositions"]
+position = Vector2(-96, 123)
+
+[node name="Right" type="Marker2D" parent="Game/PipesPositions"]
+position = Vector2(878, 1109)
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="GUI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -313.0
+offset_top = 10.0
+offset_right = -11.0
+offset_bottom = 118.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 50
+text = "Score: 00000"
+horizontal_alignment = 2
+
+[node name="Lost" type="Label" parent="GUI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "Lost"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ready" type="Label" parent="GUI"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -258.0
+offset_top = -114.5
+offset_right = 258.0
+offset_bottom = 114.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Press Spacebar or Click to start"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[connection signal="score_points" from="Game/Pipes" to="." method="_on_pipes_score_points"]
+[connection signal="body_entered" from="Game/Pipes/TopPipe" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="Game/Pipes/BottomPipe" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="Game/Pipes/ScoreAdd" to="Game/Pipes" method="_on_score_add_body_entered"]
+[connection signal="body_entered" from="Game/Deathzone" to="." method="_on_pipe_body_entered"]

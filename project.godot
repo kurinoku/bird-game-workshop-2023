@@ -11,16 +11,32 @@ config_version=5
 [application]
 
 config/name="Bird 2023"
+run/main_scene="res://src/Main.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=640
-window/size/viewport_height=1336
+window/size/viewport_width=720
+window/size/viewport_height=1280
 window/size/resizable=false
 window/stretch/mode="canvas_items"
 window/handheld/orientation=1
+
+[input]
+
+jump={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":32,"physical_keycode":0,"key_label":0,"unicode":32,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(334, 2),"global_position":Vector2(337, 34),"factor":1.0,"button_index":1,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="death_zone"
+2d_physics/layer_3="wall"
 
 [rendering]
 
