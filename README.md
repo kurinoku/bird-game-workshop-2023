@@ -1,25 +1,43 @@
 # Taller de programación de videojuegos
 
-## ¿Cómo empezar?
+Bienvenido a el taller de programación de videojuegos, en este taller crearemos un clon de 
+Flappy Bird en Godot.
 
-Ve a [https://godotengine.org/download](https://godotengine.org/download) y descarga la versión 4.0.3 de Godot.
+Usa los links en la lista de abajo para navegar por los capítulos del taller, ten en cuenta
+que la versión en texto del taller está en progreso.
 
-Descarga el archivo assets.zip desde release. [https://github.com/kurinoku/bird-game-workshop-2023/releases/tag/assets](https://github.com/kurinoku/bird-game-workshop-2023/releases/tag/assets)
+Por otra parte, el código que está en este repositorio es el producto final, y se puede descargar
+para aprender de él. [Descargalo aquí](https://github.com/kurinoku/bird-game-workshop-2023/archive/refs/heads/main.zip).
 
-Crea una carpeta, por ejemplo con nombre 'bird-game', sin las comillas.
-
-Ahora.
-- Abre godot
-- Asegurate que está en español, lado superior derecho debería decir [es] Spanish
-- Presiona "Nuevo Proyecto", 
-    - y coloca de nombre 'Bird Game', sin las comillas en el nombre del proyecto, 
-    - y en la ruta del proyecto, presiona Examinar y busca la carpeta que creaste anteriomente.
-    - Usa de Renderizador, Compatibilidad
-    - Presiona Crear y editar.
-
-- Entra a la carpeta bird-game y crea dos carpetas, src y assets.
-- Descomprime los contenidos de assets.zip, descargado anteriormente, en la nueva carpeta assets.
+Si tienes alguna duda, puedes dirigirte a [Discusiones](https://github.com/kurinoku/bird-game-workshop-2023/discussions) a hacer preguntas si no puedes seguir avanzando, o si tienes sugerencias o reclamos. (Requiere cuenta de github).
 
 
+- [¿Cómo empezar?](guide/es/como-empezar.md)
+- Interfaz de godot (En Desarrollo)
+- Crear jugador y movimiento básico (En Desarrollo)
+- Terminar juego al chocar (En Desarrollo)
+- Tuberías moviendose (En Desarrollo)
+- Reinicio un juego (En Desarrollo)
+- Interfaz gráfica (En Desarrollo)
+- Exportación de un proyecto (En Desarrollo)
 
+> An english version might come, some day if I feel like it.
 
+## Enlaces de interés
+
+- gdquest
+  - [sitio](https://www.gdquest.com/)
+  - [YT](https://www.youtube.com/c/gdquest)
+  - [twitter](https://twitter.com/NathanGDQuest)
+- gameprogrammingpatterns
+  - [sitio](https://gameprogrammingpatterns.com/)
+  - [libro](https://gameprogrammingpatterns.com/contents.html)
+- pigdev
+  - [YT](https://www.youtube.com/@pigdev/videos)
+- gamefromscratch
+  - [sitio](https://gamefromscratch.com/)
+  - [YT](https://www.youtube.com/gamefromscratch)
+- HeartBeast
+  - [YT](https://www.youtube.com/@uheartbeast)
+- Miziziziz
+  - [YT](https://www.youtube.com/Miziziziz)
